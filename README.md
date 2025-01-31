@@ -16,8 +16,7 @@ availability and manage orders in real time.<br>
 <b>● Responsive Design:</b> Optimized for mobile use as street vendors and customers will 
 likely access it via mobile devices. <br> 
 <br>
-<h4><b>Tech Stack</b></h4> <br>
-<br>
+<h2><b>Tech Stack</b></h2> <br>
 The Street Potters platform utilizes the following technologies: <br>
 <br>
 <b>● Frontend:</b> <br>
@@ -40,7 +39,7 @@ and orders. <br>
 ○ Heroku (Optional for deployment): For hosting the backend API and frontend. <br>
 <br>
 
-<h4><b>Features</b></h4><br><b>1. Vendor Profiles</b> <br>
+<h2><b>Features</b></h2><br><b>1. Vendor Profiles</b> <br>
 Vendors can create and manage profiles that showcase their products, prices, and availability. <br>
 <b>● Functionality:</b> <br>
 ○ Sign up for vendors to create their profiles. <br>
