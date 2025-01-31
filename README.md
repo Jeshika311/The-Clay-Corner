@@ -7,6 +7,7 @@ space to connect with potential customers. Street vendors often struggle with ga
 managing customer interactions, and increasing sales due to the lack of digital tools tailored to 
 their needs. Street Potters bridges this gap by allowing vendors to create profiles, list products, 
 and enable customers to search for nearby vendors, browse products, and place orders online.<br> 
+<br>
 Key Features: <br> 
 ● Vendor Profiles: Vendors can create profiles with their product catalog, including prices, 
 availability, and images. <br> 
