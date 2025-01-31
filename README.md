@@ -1,5 +1,6 @@
 # The-Clay-Corner
 Street Potters <br>
+ <br>
 Overview <br> 
 Street Potters is a digital platform aimed at empowering street vendors by providing them a 
 space to connect with potential customers. Street vendors often struggle with gaining visibility, 
