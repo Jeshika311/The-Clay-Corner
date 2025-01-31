@@ -16,7 +16,7 @@ the product they are looking for. <br>
 ● Customer Reviews and Ratings: Build trust by allowing customers to review and rate 
 vendors. <br> 
 ● Order Management: Customers can place orders, and vendors can update product 
-availability and manage orders in real time.<br>  
+availability and manage orders in real time. 
 ● Payment Integration: Future plans to integrate secure payment methods. <br> 
 ● Responsive Design: Optimized for mobile use as street vendors and customers will 
 likely access it via mobile devices. <br> 
