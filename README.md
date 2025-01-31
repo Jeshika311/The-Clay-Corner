@@ -16,7 +16,7 @@ the product they are looking for. <br>
 ● Customer Reviews and Ratings: Build trust by allowing customers to review and rate 
 vendors. <br> 
 ● Order Management: Customers can place orders, and vendors can update product 
-availability and manage orders in real time. 
+availability and manage orders in real time.<br>
 ● Payment Integration: Future plans to integrate secure payment methods. <br> 
 ● Responsive Design: Optimized for mobile use as street vendors and customers will 
 likely access it via mobile devices. <br> 
@@ -25,17 +25,20 @@ Tech Stack <br>
 <br>
 The Street Potters platform utilizes the following technologies: <br>
 ● Frontend: <br>
+<br>
 ○ HTML: For structuring the content. <br>
 ○ CSS: For styling the web pages and creating a responsive design. <br>
 ○ JavaScript: For interactivity and dynamic behavior. <br>
 ○ React (Optional for later stages): For building a more dynamic and scalable user 
 interface. <br>
 ● Backend: <br>
+<br>
 ○ Node.js: For building the server-side application. <br>
 ○ Express.js: Framework for building the backend API. <br>
 ○ MongoDB (Optional): For managing data related to users, vendors, products, 
 and orders. <br>
 ● Tools and Services: <br>
+<br>
 ○ Git/GitHub: Version control and collaboration. <br>
 ○ Figma / Adobe XD: For UI/UX design and prototyping. <br>
 ○ Postman: For API testing. <br>
