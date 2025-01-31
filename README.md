@@ -43,3 +43,46 @@ and orders. <br>
 ○ Figma / Adobe XD: For UI/UX design and prototyping. <br>
 ○ Postman: For API testing. <br>
 ○ Heroku (Optional for deployment): For hosting the backend API and frontend. <br>
+<br>
+
+Features <br>
+1. Vendor Profiles <br>
+Vendors can create and manage profiles that showcase their products, prices, and availability. <br>
+● Functionality: <br>
+○ Sign up for vendors to create their profiles. <br>
+○ Add, edit, or remove products. <br>
+○ Set product price and availability status. <br>
+<br>
+2. Search & Browse Products <br>
+Customers can search for products by category, keyword, or location. <br>
+● Functionality: <br>
+○ Search by location (using Google Maps API or similar). <br>
+○ Filter products by category, availability, and price. <br>
+<br>
+3. Order Management <br>
+Customers can place orders for products, and vendors can manage these orders through the 
+platform. <br>
+● Functionality: <br>
+○ View orders and order status. <br>
+○ Real-time updates for product availability. <br>
+○ Ability to mark orders as complete or in progress. <br>
+<br>
+4. Search & Browse Products <br>
+Customers can search for products by category, keyword, or location. <br>
+● Functionality: <br>
+○ Search by location (using Google Maps API or similar). <br>
+○ Filter products by category, availability, and price. <br>
+<br>
+5. Order Management <br>
+Customers can place orders for products, and vendors can manage these orders through the 
+platform. <br>
+● Functionality: <br>
+○ View orders and order status. <br>
+○ Real-time updates for product availability. <br>
+○ Ability to mark orders as complete or in progress. <br>
+<br>
+6. Reviews and Ratings <br>
+Customers can rate vendors and leave reviews for products they purchased. <br>
+● Functionality: <br>
+○ Rate products and provide feedback. <br>
+○ Average rating displayed on vendor profiles. <br>
