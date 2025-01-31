@@ -45,8 +45,7 @@ and orders. <br>
 ○ Heroku (Optional for deployment): For hosting the backend API and frontend. <br>
 <br>
 
-Features <br>
-1. Vendor Profiles <br>
+Features <br>1. Vendor Profiles <br>
 Vendors can create and manage profiles that showcase their products, prices, and availability. <br>
 ● Functionality: <br>
 ○ Sign up for vendors to create their profiles. <br>
