@@ -1,3 +1,6 @@
+<h1 style="text-align: center;">The Clay Corner</h1>
+<h2 style="text-align: center;"><b>Street Potters</b></h2>
+
 <p align="center">
   <h1>The Clay Corner</h1>
   <h1><b>Street Potters</b></h1>
