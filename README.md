@@ -19,18 +19,18 @@ The Street Potters platform utilizes the following technologies: <br>
 ○ HTML: For structuring the content. <br>
 ○ CSS: For styling the web pages and creating a responsive design. <br>
 ○ JavaScript: For interactivity and dynamic behavior. <br>
-○ React (Optional for later stages): For building a more dynamic and scalable user interface. <br>
+○ React : For building a more dynamic and scalable user interface. <br>
 <br>
 <b>● Backend:</b> <br>
 ○ Node.js: For building the server-side application. <br>
 ○ Express.js: Framework for building the backend API. <br>
-○ MongoDB (Optional): For managing data related to users, vendors, products, and orders. <br>
+○ MongoDB : For managing data related to users, vendors, products, and orders. <br>
 <br>
 <b>● Tools and Services:</b> <br>
 ○ Git/GitHub: Version control and collaboration. <br>
 ○ Figma / Adobe XD: For UI/UX design and prototyping. <br>
 ○ Postman: For API testing. <br>
-○ Heroku (Optional for deployment): For hosting the backend API and frontend. <br>
+○ Heroku : For hosting the backend API and frontend. <br>
 <br>
 
 <h2><b>Features</b></h2><br><b>1. Vendor Profiles</b> <br>
