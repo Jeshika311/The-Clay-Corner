@@ -1,10 +1,10 @@
 <h1>The Clay Corner</h1>
 <h1><b>Street Potters</b></h1>
 <br>
-<h2>Overview : </h2>
+<h2>Overview</h2>
 <b>Street Potters</b> is a digital platform aimed at empowering street vendors by providing them a space to connect with potential customers. Street vendors often struggle with gaining visibility, managing customer interactions, and increasing sales due to the lack of digital tools tailored to their needs. Street Potters bridges this gap by allowing vendors to create profiles, list products, and enable customers to search for nearby vendors, browse products, and place orders online.<br> 
 <br>
-<h2><b>Key Features:</b></h2> <br> 
+<h2><b>Key Features</b></h2> <br> 
 <b>● Vendor Profiles :</b>  Vendors can create profiles with their product catalog, including prices, availability, and images. <br> 
 <b>● Search Functionality :</b>  Customers can search for nearby vendors using their location or the product they are looking for. <br> 
 <b>● Customer Reviews and Ratings :</b>  Build trust by allowing customers to review and rate vendors. <br> 
