@@ -33,8 +33,8 @@ The Street Potters platform utilizes the following technologies: <br>
 ○ Heroku : For hosting the backend API and frontend. <br>
 <br>
 
-<h2><b>Features</b></h2><br><b>1. Vendor Profiles</b> <br>
-Vendors can create and manage profiles that showcase their products, prices, and availability. <br>
+<h2><b>Features</b></h2><br><b>1. Potters Profiles</b> <br>
+Potters can create and manage profiles that showcase their products, prices, and availability. <br>
 <b>● Functionality:</b> <br>
 ○ Sign up for vendors to create their profiles. <br>
 ○ Add, edit, or remove products. <br>
