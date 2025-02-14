@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Potters Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+
+        /* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background: #14213D;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Title Styling */
+.sidebar h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Sidebar Links Styling */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-size: 18px; /* Ensure the font size is consistent */
+}
+
+.sidebar ul li:hover {
+    background-color: #FCA311;
+    color: white;
+}
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            background: #E5E5E5;
+        }
+        
+        /* Dashboard Layout */
+        .dashboard {
+            display: flex;
+            width: 100%;
+        }
+        
+        /* Sidebar Styling */
+        .sidebar {
+            width: 250px;
+            background: #14213D;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+        }
+        
+        .sidebar h2 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar ul li {
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+        
+        .sidebar ul li:hover {
+            background-color: #FCA311;
+            color: white;
+        }
+
+        /* Content Section */
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            background: #FFFFFF;
+        }
+        
+        .stats {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .stat-box {
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            flex: 1;
+        }
+
+        /* Stat box colors */
+        .pending { background: #FCA311; }
+        .completed { background: #14213D; }
+        .canceled { background: #000000; }
+
+        .chart {
+            margin-top: 20px;
+            background: #E5E5E5;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+            <h2>Street Potters</h2>
+            <ul>
+                <li onclick="window.location.href='dashboard_seller.html'">Dashboard</li>
+                <li onclick="window.location.href='order.html'">Orders</li>
+                <li onclick="window.location.href='product.html'">Products</li>
+                <li onclick="window.location.href='customers.html'">Customers</li>
+                <li onclick="window.location.href='settings.html'">Settings</li>
+                <li onclick="window.location.href='seller_profile.html'">Profile</li>
+            </ul>
+        </aside>
+        
+        
+        <main class="content">
+            <header>
+                <h1>Dashboard</h1>
+            </header>
+            
+            <section class="stats">
+                <div class="stat-box pending">Pending Orders: 5</div>
+                <div class="stat-box completed">Completed Orders: 20</div>
+                <div class="stat-box canceled">Canceled Orders: 2</div>
+            </section>
+            
+            <section class="chart">
+                <canvas id="salesChart"></canvas>
+            </section>
+        </main>
+    </div>
+    
+    <script>
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Sales',
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: '#FCA311',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

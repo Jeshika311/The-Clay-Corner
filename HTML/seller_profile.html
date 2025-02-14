@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Profile</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #121212;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling */
+        .header {
+            background: #1e1e1e;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 0px 10px rgba(255, 165, 0, 0.3);
+        }
+
+        .header h1 {
+            color: #FCA311;
+            margin: 0;
+        }
+
+        .nav-buttons button {
+            background: #FCA311;
+            color: black;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            background: #1e1e1e;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 165, 0, 0.3);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            border-bottom: 2px solid #FCA311;
+        }
+
+        .profile-header img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid #FCA311;
+        }
+
+        .profile-info {
+            text-align: left;
+            flex-grow: 1;
+            margin-left: 20px;
+        }
+
+        .profile-info h2 {
+            color: #FCA311;
+        }
+
+        .edit-btn {
+            background: #FCA311;
+            color: black;
+            padding: 8px 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Product Section */
+        .products-section {
+            margin-top: 20px;
+            display:grid;
+        }
+
+        .product-card {
+            width:300px;
+            background: #252525;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 8px rgba(255, 165, 0, 0.2);
+            text-align: left;
+            position: relative;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .delete-btn {
+            background: red;
+            color: white;
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .add-product-btn {
+            background: #FCA311;
+            color: black;
+            padding: 12px 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .add-product-btn:hover {
+            background: #ffb432;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1e1e1e;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            box-shadow: 0px -3px 10px rgba(255, 165, 0, 0.3);
+        }
+
+        .footer p {
+            margin: 5px 0;
+        }
+
+        .footer a {
+            color: #FCA311;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>Street Potters</h1>
+        <div class="nav-buttons">
+            <button onclick="window.location.href='index.html'">Home</button>
+            <button onclick="window.location.href='dashboard_seller.html'">Dashboard</button>
+            <button onclick="logout()">Logout</button>
+        </div>
+    </header>
+
+    <!-- Profile Section -->
+    <div class="container">
+        <div class="profile-header">
+            <img src="seller.jpg" alt="Seller Profile Picture">
+            <div class="profile-info">
+                <h2>John Doe</h2>
+                <p><strong>Location:</strong> New York, USA</p>
+            </div>
+            <button class="edit-btn">Edit Profile</button>
+        </div>
+
+        <div class="products-section">
+            <h2>Your Products</h2>
+            <div id="productsList"></div>
+        </div>
+
+        <button class="add-product-btn" onclick="window.location.href='add_product.html'">Add Product</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Street Potters. All rights reserved.</p>
+        <p>
+            <a href="about.html">About Us</a> | 
+            <a href="contact.html">Contact</a> | 
+            <a href="privacy.html">Privacy Policy</a>
+        </p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let products = JSON.parse(localStorage.getItem("products")) || [];
+            const productsList = document.getElementById("productsList");
+
+            function displayProducts() {
+                productsList.innerHTML = "";
+                products.forEach((product, index) => {
+                    const productCard = document.createElement("div");
+                    productCard.classList.add("product-card");
+                    productCard.innerHTML = `
+                        <button class="delete-btn" onclick="deleteProduct(${index})">X</button>
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <p><strong>$${product.price}</strong></p>
+                    `;
+                    productsList.appendChild(productCard);
+                });
+            }
+
+            window.deleteProduct = function(index) {
+                products.splice(index, 1);
+                localStorage.setItem("products", JSON.stringify(products));
+                displayProducts();
+            };
+
+            displayProducts();
+        });
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('currentUserType');
+            alert('Logged out successfully!');
+            window.location.href = 'index.html';
+        }
+    </script>
+
+</body>
+</html>

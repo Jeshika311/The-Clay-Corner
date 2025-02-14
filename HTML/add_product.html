@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #121212;
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 40px auto;
+            background: #1e1e1e;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(255, 165, 0, 0.3);
+        }
+
+        .form-group {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 18px;
+            color: #FCA311;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background: #333;
+            color: white;
+            margin-top: 5px;
+        }
+
+        .image-preview {
+            width: 100%;
+            height: 200px;
+            border-radius: 8px;
+            background: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .image-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .submit-btn {
+            background: #FCA311;
+            color: black;
+            padding: 12px 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 18px;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #ffb432;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Add New Product</h2>
+
+        <form id="addProductForm">
+            <div class="form-group">
+                <label>Product Name:</label>
+                <input type="text" id="productName" required>
+            </div>
+
+            <div class="form-group">
+                <label>Product Description:</label>
+                <textarea id="productDescription" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Price ($):</label>
+                <input type="number" id="productPrice" required>
+            </div>
+
+            <div class="form-group">
+                <label>Upload Product Image:</label>
+                <input type="file" id="productImage" accept="image/*" required>
+                <div class="image-preview" id="imagePreview">Image Preview</div>
+            </div>
+
+            <button type="submit" class="submit-btn">Add Product</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('productImage').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('imagePreview').innerHTML = `<img src="${e.target.result}" alt="Product Image">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.getElementById('addProductForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            let products = JSON.parse(localStorage.getItem("products")) || [];
+
+            const imageFile = document.getElementById('productImage').files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                products.push({
+                    name: document.getElementById('productName').value,
+                    description: document.getElementById('productDescription').value,
+                    price: document.getElementById('productPrice').value,
+                    image: e.target.result // Store image as Base64 string
+                });
+                localStorage.setItem("products", JSON.stringify(products));
+                window.location.href = "seller_profile.html"; // Redirect to Seller Profile
+            };
+            reader.readAsDataURL(imageFile);
+        });
+    </script>
+
+</body>
+</html>

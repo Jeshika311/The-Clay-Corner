@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Potters - Login</title>
+    <link rel="stylesheet" href="login.css">
+
+    <style>
+        /* Your existing CSS goes here */
+    </style>
+
+    <script>
+
+
+
+
+function login(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Retrieve user data from localStorage
+    const storedUsername = localStorage.getItem('username');
+    const storedPassword = localStorage.getItem('password');
+    const storedUserType = localStorage.getItem('userType'); // Retrieve user type (buyer/potter)
+
+    if (username === storedUsername && password === storedPassword) {
+        alert('Login Successful!');
+        
+        // Check user type and redirect accordingly
+        if (storedUserType === 'buyer') {
+            window.location.href = 'buyer_profile.html'; // Redirect to Buyer Profile
+        } else if (storedUserType === 'potter') {
+            window.location.href = 'seller_profile.html'; // Redirect to Seller Profile
+        } else {
+            alert('Invalid user type.');
+        }
+    } else {
+        alert('Invalid credentials. Please try again.');
+    }
+}
+
+
+
+
+
+function checkLogin() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');  // Check login status
+    const userRole = localStorage.getItem('userRole');      // Get user role from localStorage
+
+    if (!isLoggedIn) {
+        window.location.href = 'login.html';  // Redirect to login page if not logged in
+    } else {
+        // Redirect based on role
+        if (userRole === 'buyer') {
+            window.location.href = 'buyer_profile.html';  // Redirect to buyer profile
+        } else if (userRole === 'potter') {
+            window.location.href = 'seller_profile.html';  // Redirect to potter (seller) profile
+        }
+    }
+}
+
+    </script>
+
+</head>
+<body>
+    <form class="form" action="#" method="POST" onsubmit="login(event)">
+        <p id="heading">Login</p>
+
+        <div class="field">
+            <select class="select-field" name="user_type" required>
+                <option value="" disabled selected>Select User Type</option>
+                <option value="buyer">Buyer</option>
+                <option value="potter">Potter</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <input id="username" name="username" autocomplete="username" placeholder="Username / Phone No. / Email" class="input-field" type="text" required>
+        </div>
+
+        <div class="field">
+            <input id="password" name="password" autocomplete="current-password" placeholder="Password" class="input-field" type="password" required>
+        </div>
+
+        <div class="btn">
+            <button class="button1" type="submit">Login</button>
+            <button class="button2" type="button" onclick="window.location.href='signup.html'">Sign Up</button>
+            <button class="button3" type="button" onclick="window.location.href='forgot-password.html'">Forgot Password?</button>
+        </div>
+    </form>
+</body>
+</html>

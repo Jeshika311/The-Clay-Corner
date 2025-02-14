@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - The Clay Corner</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000;
+    color: #FFFFFF;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background-color: #14213D;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    border-radius: 12px;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    color: #FCA311;
+    text-transform: uppercase;
+}
+
+.nav-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #FCA311;
+}
+
+/* Cart Page */
+.cart-section {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.cart-section h2 {
+    font-size: 36px;
+    color: #FCA311;
+    margin-bottom: 20px;
+}
+
+.cart-items {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 40px;
+}
+
+.cart-items th,
+.cart-items td {
+    padding: 12px 15px;
+    text-align: center;
+    border: 1px solid #444;
+}
+
+.cart-items th {
+    background-color: rgba(51, 51, 51, 0.5);
+    color: #FCA311;
+}
+
+.cart-items td {
+    background-color: rgba(26, 26, 26, 0.5);
+}
+
+.cart-items input {
+    width: 50px;
+    padding: 5px;
+    background-color: rgba(51, 51, 51, 0.5);
+    border: 1px solid #FCA311;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.cart-items button {
+    background-color: #FCA311;
+    color: #000000;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cart-items button:hover {
+    background-color: #E5E5E5;
+}
+
+/* Checkout Button */
+.checkout-btn {
+    background-color: #FCA311;
+    padding: 15px 30px;
+    color: #000000;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 18px;
+    display: inline-block;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #E5E5E5;
+}
+
+/* Footer */
+.footer {
+    background-color: #14213D;
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    color: #FFFFFF;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+
+.search-bar input {
+    padding: 8px 15px;
+    border: 2px solid #FCA311;
+    border-radius: 20px;
+    background-color: #14213D;
+    color: #FFFFFF;
+    transition: border 0.3s ease;
+}
+
+.search-bar input:focus {
+    border-color: #E5E5E5;
+    outline: none;
+}
+
+ .footer {
+        background-color: #14213D;
+        padding: 40px 20px;
+        text-align: center;
+        color: #B0B0B0;
+        border-top: 3px solid #FCA311;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .footer-left, .footer-middle, .footer-right {
+        flex: 1;
+        padding: 10px;
+    }
+
+    .footer-left p, .footer-right p {
+        font-size: 16px;
+    }
+
+    .footer-middle p {
+        font-size: 14px;
+    }
+
+    .footer a {
+        color: #FCA311;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 8px;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    .footer-right p a, .footer-left p a {
+        color: #FCA311;
+        text-decoration: none;
+    }
+
+    .footer-right p a:hover, .footer-left p a:hover {
+        text-decoration: underline;
+    }
+    </style>
+
+
+</head>
+<body>
+    <div class="header container">
+        <div class="logo">The Clay Corner</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="pot.html">Pot</a>
+    <a href="contact.html">Contact</a>
+    <a href="javascript:void(0);" onclick="checkLogin()">Profile</a>
+</div>
+    </div>
+
+    <div class="container">
+        <section class="cart-section">
+            <h2>Your pot</h2>
+            <table class="cart-items">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example Cart Item -->
+                    <tr>
+                        <td>Pottery Bowl</td>
+                        <td>₹500</td>
+                        <td><input type="number" value="1" min="1"></td>
+                        <td>₹500</td>
+                        <td><button>Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td>Handcrafted Pitcher</td>
+                        <td>₹800</td>
+                        <td><input type="number" value="1" min="1"></td>
+                        <td>₹800</td>
+                        <td><button>Remove</button></td>
+                    </tr>
+                    <tr>
+                        <td>Ceramic Plate</td>
+                        <td>₹450</td>
+                        <td><input type="number" value="1" min="1"></td>
+                        <td>₹450</td>
+                        <td><button>Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="cart-summary">
+                <h3>Total: ₹1750</h3>
+                <button class="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+    <div class="footer-container">
+        <div class="footer-left">
+            <p>&copy; 2025 The Clay Corner | Crafted with Love & Art</p>
+            <p>Street Potters | All Rights Reserved</p>
+        </div>
+        <div class="footer-middle">
+            <p><a href="about.html">About Us</a> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+        </div>
+        <div class="footer-right">
+            <p>Contact: <a href="mailto:streetpotters@gmail.com">streetpotters@gmail.com</a></p>
+            <p>Phone: <a href="tel:+919876543210">+91-9876543210</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

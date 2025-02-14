@@ -1,0 +1,71 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000000; /* Black */
+    color: #ffffff; /* White */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container */
+.container {
+    background-color: #14213D; /* Dark Blue */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    width: 350px;
+}
+
+/* Headings */
+h2 {
+    margin-bottom: 1rem;
+    font-size: 24px;
+}
+
+/* Form Inputs */
+input, select {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #E5E5E5; /* Light Gray */
+    color: #000000; /* Black */
+    font-size: 16px;
+}
+
+/* Button */
+button {
+    width: 50%;
+    padding: 12px;
+    background-color: #FCA311; /* Orange */
+    color: #000000; /* Black */
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #E58E00; /* Darker Orange */
+}
+
+/* Link */
+p {
+    margin-top: 10px;
+}
+
+a {
+    color: #FCA311; /* Orange */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}

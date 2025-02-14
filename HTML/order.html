@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Potters - Orders</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+    /* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background: #14213D;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar Title Styling */
+.sidebar h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* Sidebar Links Styling */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-size: 18px; /* Ensure the font size is consistent */
+}
+
+.sidebar ul li:hover {
+    background-color: #FCA311;
+    color: white;
+}
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            background: #f4f4f4;
+            color: #333;
+        }
+        .dashboard {
+            display: flex;
+            width: 100%;
+        }
+        .sidebar {
+            width: 250px;
+            background: #14213D;
+            color: white;
+            padding: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h2 {
+            text-align: center;
+            color: #FCA311;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background 0.3s ease;
+            border-radius: 5px;
+        }
+        .sidebar ul li:hover {
+            background: #FCA311;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 30px;
+            background: white;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        header h1 {
+            font-size: 32px;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 15px;
+            text-align: center;
+        }
+        th {
+            background-color: #FCA311;
+            color: white;
+            font-size: 18px;
+            border-bottom: 2px solid #ddd;
+        }
+        td {
+            background-color: #f9f9f9;
+            font-size: 16px;
+            color: #555;
+            border-bottom: 1px solid #ddd;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+            transform: scale(1.02);
+            transition: 0.3s;
+        }
+        .status-pending {
+            background-color: #FCA311;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 25px;
+        }
+        .status-completed {
+            background-color: #14213D;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 25px;
+        }
+        .status-canceled {
+            background-color: #D32F2F;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 25px;
+        }
+        .btn {
+            padding: 8px 20px;
+            background-color: #14213D;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #FCA311;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 250px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <aside class="sidebar">
+    <h2>Street Potters</h2>
+    <ul>
+        <li onclick="window.location.href='dashboard_seller.html'">Dashboard</li>
+        <li onclick="window.location.href='order.html'">Orders</li>
+        <li onclick="window.location.href='product.html'">Products</li>
+        <li onclick="window.location.href='customers.html'">Customers</li>
+        <li onclick="window.location.href='settings.html'">Settings</li>
+        <li onclick="window.location.href='seller_profile.html'">Profile</li>
+    </ul>
+</aside>
+
+        
+        <main class="content">
+            <header>
+                <h1>Orders</h1>
+            </header>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" placeholder="Search Orders..." id="searchInput">
+            </div>
+
+            <!-- Orders Table -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Status</th>
+                        <th>Total Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersTable">
+                    <!-- Orders will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </main>
+    </div>
+
+    <script>
+        // Sample Order Data
+        const orders = [
+            { orderId: '001', customerName: 'Alice', status: 'Pending', totalAmount: '$50' },
+            { orderId: '002', customerName: 'Bob', status: 'Completed', totalAmount: '$120' },
+            { orderId: '003', customerName: 'Charlie', status: 'Canceled', totalAmount: '$30' },
+            { orderId: '004', customerName: 'David', status: 'Pending', totalAmount: '$85' }
+        ];
+
+        // Render Orders in Table
+        const ordersTable = document.getElementById("ordersTable");
+        orders.forEach(order => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${order.orderId}</td>
+                <td>${order.customerName}</td>
+                <td class="status-${order.status.toLowerCase()}">${order.status}</td>
+                <td>${order.totalAmount}</td>
+                <td><button class="btn" onclick="viewOrder('${order.orderId}')">View</button></td>
+            `;
+            ordersTable.appendChild(row);
+        });
+
+        // View Order Function
+        function viewOrder(orderId) {
+            alert('Viewing order: ' + orderId);
+            // Here, you could add code to navigate to a detailed order page or show more info.
+        }
+
+        // Search Function
+        document.getElementById("searchInput").addEventListener("input", function(event) {
+            const searchValue = event.target.value.toLowerCase();
+            const rows = document.querySelectorAll("#ordersTable tr");
+            rows.forEach(row => {
+                const orderId = row.children[0].innerText.toLowerCase();
+                const customerName = row.children[1].innerText.toLowerCase();
+                if (orderId.includes(searchValue) || customerName.includes(searchValue)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

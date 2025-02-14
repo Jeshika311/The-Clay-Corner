@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Potters - Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+
+    <style>
+        /* Your existing CSS goes here */
+    </style>
+
+    <script>
+
+
+function signup(event) {
+    event.preventDefault(); // Prevent form submission
+
+    const userType = document.querySelector('select[name="user_type"]').value;
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm_password').value;
+
+    // Basic validation
+    if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return;
+    }
+
+    if (username && email && phone && password && confirmPassword) {
+        // Store user info in localStorage (simulating a real signup)
+        localStorage.setItem('username', username);
+        localStorage.setItem('email', email);
+        localStorage.setItem('phone', phone);
+        localStorage.setItem('password', password);
+        localStorage.setItem('userType', userType); // Store the user type as well
+
+        alert('Sign Up Successful!');
+        
+        // Redirect to login page after sign up
+        window.location.href = 'login.html'; // Redirect to login page
+    } else {
+        alert('Please fill all fields');
+    }
+}
+
+
+
+
+
+        function signup(event) {
+            event.preventDefault(); // Prevent form submission
+
+            const userType = document.querySelector('select[name="user_type"]').value;
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+
+            // Basic validation
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            if (username && email && phone && password && confirmPassword) {
+                // Store user info in localStorage (simulating a real signup)
+                localStorage.setItem('username', username);
+                localStorage.setItem('email', email);
+                localStorage.setItem('phone', phone);
+                localStorage.setItem('password', password);
+                localStorage.setItem('userType', userType);
+
+                alert('Sign Up Successful!');
+                window.location.href = 'login.html'; // Redirect to login page
+            } else {
+                alert('Please fill all fields');
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <form class="form" action="#" method="POST" onsubmit="signup(event)">
+        <p id="heading">Sign Up</p>
+
+        <div class="field">
+            <select class="select-field" name="user_type" required>
+                <option value="" disabled selected>Select User Type</option>
+                <option value="buyer">Buyer</option>
+                <option value="potter">Potter</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <input id="username" name="username" autocomplete="username" placeholder="Username" class="input-field" type="text" required>
+        </div>
+
+        <div class="field">
+            <input id="email" name="email" autocomplete="email" placeholder="Email" class="input-field" type="email" required>
+        </div>
+
+        <div class="field">
+            <input id="phone" name="phone" autocomplete="tel" placeholder="Phone Number" class="input-field" type="tel" required>
+        </div>
+
+        <div class="field">
+            <input id="password" name="password" autocomplete="new-password" placeholder="Password" class="input-field" type="password" required>
+        </div>
+
+        <div class="field">
+            <input id="confirm_password" name="confirm_password" autocomplete="new-password" placeholder="Confirm Password" class="input-field" type="password" required>
+        </div>
+
+        <div class="btn">
+            <button class="button1" type="submit">Sign Up</button>
+            <button class="button2" type="button" onclick="window.location.href='login.html'">Already have an account? Login</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Clay Corner</title>
+    <style>
+        /* Base Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            color: #FFFFFF;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #14213D;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+            color: #FCA311;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            color: #FFFFFF;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #FCA311;
+            transform: scale(1.1);
+        }
+
+        /* Search Bar */
+        .search-bar input {
+            padding: 10px 18px;
+            border: 2px solid #FCA311;
+            border-radius: 25px;
+            background-color: #14213D;
+            color: #FFFFFF;
+            font-size: 16px;
+            transition: border 0.3s ease, background-color 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            border-color: #E5E5E5;
+            outline: none;
+            background-color: #1F2937;
+        }
+
+        /* Profile Page */
+        .profile-page {
+            margin-top: 30px;
+            background-color: #1F2937;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-header h2 {
+            color: #FCA311;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .profile-header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #FCA311;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-info p {
+            font-size: 18px;
+            color: #B0B0B0;
+            margin: 15px 0;
+        }
+
+        /* Order History Section */
+        .order-history {
+            margin-top: 40px;
+        }
+
+        .orders {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .order-card {
+            background-color: #1F2937;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .order-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+        }
+
+        .order-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .order-id {
+            font-size: 20px;
+            font-weight: bold;
+            color: #FCA311;
+        }
+
+        .order-status {
+            font-size: 16px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .delivered {
+            background-color: #4CAF50;
+            color: #FFFFFF;
+        }
+
+        .shipped {
+            background-color: #FF9800;
+            color: #FFFFFF;
+        }
+
+        .pending {
+            background-color: #FF5722;
+            color: #FFFFFF;
+        }
+
+        .order-card-body {
+            display: flex;
+            gap: 20px;
+        }
+
+        .order-details {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .order-img img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .order-info p {
+            font-size: 15px;
+            color: #B0B0B0;
+            margin: 7px 0;
+        }
+
+        .order-info p strong {
+            color: #FFFFFF;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #14213D;
+            padding: 50px 20px;
+            text-align: center;
+            color: #B0B0B0;
+            border-top: 3px solid #FCA311;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .footer-left, .footer-middle, .footer-right {
+            flex: 1;
+            padding: 15px;
+        }
+
+        .footer-left p, .footer-right p {
+            font-size: 16px;
+        }
+
+        .footer-middle p {
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #FCA311;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 12px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-right p a, .footer-left p a {
+            color: #FCA311;
+            text-decoration: none;
+        }
+
+        .footer-right p a:hover, .footer-left p a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header container">
+        <div class="logo">The Clay Corner</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="shop.html">Shop</a>
+            <a href="pot.html">Pot</a>
+            <a href="contact.html">Contact</a>
+            <a href="profile.html">Profile</a>
+        </div>
+    </div>
+
+    <div class="container profile-page">
+        <!-- Profile Header -->
+        <div class="profile-header">
+            <h2>Welcome, Moksh!</h2>
+            <img src="profile pic.jpg" alt="Profile Picture">
+        </div>
+
+        <!-- Profile Info -->
+        <div class="profile-info">
+            <p><strong>Username:</strong> Moksh Saini</p>
+            <p><strong>Email:</strong> moksh@example.com</p>
+            <p><strong>Location:</strong> Mullana</p>
+        </div>
+
+        <!-- Order History Section -->
+        <div class="order-history">
+            <h2>Order History</h2>
+            <div class="orders">
+                <!-- Order Card 1 -->
+                <div class="order-card">
+                    <div class="order-card-header">
+                        <span class="order-id">#001</span>
+                        <span class="order-status delivered">Delivered</span>
+                    </div>
+                    <div class="order-card-body">
+                        <div class="order-details">
+                            <div class="order-img">
+                                <img src="pottry bowls.webp" alt="Pottery Bowl">
+                            </div>
+                            <div class="order-info">
+                                <p><strong>Product:</strong> Pottery Bowl</p>
+                                <p><strong>Price:</strong> $25.00</p>
+                                <p><strong>Date:</strong> 2025-01-15</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Card 2 -->
+                <div class="order-card">
+                    <div class="order-card-header">
+                        <span class="order-id">#002</span>
+                        <span class="order-status shipped">Shipped</span>
+                    </div>
+                    <div class="order-card-body">
+                        <div class="order-details">
+                            <div class="order-img">
+                                <img src="artestic jug.jpg" alt="Artistic Jug">
+                            </div>
+                            <div class="order-info">
+                                <p><strong>Product:</strong> Artistic Jug</p>
+                                <p><strong>Price:</strong> $35.00</p>
+                                <p><strong>Date:</strong> 2025-01-20</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Card 3 -->
+                <div class="order-card">
+                    <div class="order-card-header">
+                        <span class="order-id">#003</span>
+                        <span class="order-status pending">Pending</span>
+                    </div>
+                    <div class="order-card-body">
+                        <div class="order-details">
+                            <div class="order-img">
+                                <img src="clay mug.avif" alt="Clay Mug">
+                            </div>
+                            <div class="order-info">
+                                <p><strong>Product:</strong> Clay Mug</p>
+                                <p><strong>Price:</strong> $15.00</p>
+                                <p><strong>Date:</strong> 2025-01-25</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2025 The Clay Corner | Crafted with Love & Art</p>
+                <p>Street Potters | All Rights Reserved</p>
+            </div>
+            <div class="footer-middle">
+                <p><a href="about.html">About Us</a> | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+            </div>
+            <div class="footer-right">
+                <p>Contact: <a href="mailto:support@streetpotters.com">support@streetpotters.com</a></p>
+                <p>Phone: <a href="tel:+919876543210">+91-9876543210</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
